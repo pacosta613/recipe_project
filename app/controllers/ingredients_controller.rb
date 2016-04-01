@@ -18,8 +18,13 @@ class IngredientsController < ApplicationController
   def update
     find_ingredients
     @ingredient.update(@ingredient_params)
+    @ingredient.save
 
     redirect_to ingredient_path(@ingredient)
+  end
+
+  def edit
+    find_ingredients
   end
 
   def destroy

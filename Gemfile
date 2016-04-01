@@ -6,6 +6,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "figaro"
+
+gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -40,6 +42,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
 end
 
 group :development do

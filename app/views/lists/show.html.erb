@@ -1,22 +1,28 @@
 <h1><%= @list.name %></h1>
-<h3><%= @list.description %></h3>
+
+<%= form_for @rating do |f| %>
+   1 <%= f.radio_button :star_rating, "1"%> | 2 <%= f.radio_button :star_rating, "2"%> | 3 <%= f.radio_button :star_rating, "3"%> | 4 <%= f.radio_button :star_rating, "4"%> | 5 <%= f.radio_button :star_rating, "5"%> |
+  <%= f.hidden_field :list_id, value: @list.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit "Add Rating" %>
+<%end%>
 
 <h3>Ingredients:</h3>
 
-<ul>
+<ol>
   <% @list.ingredients.each do |ingredient| %>
-    <li><%= ingredient.description %></li>
+    <li><%= ingredient.description %></li><br>
   <% end %>
-</ul>
+</ol>
 
 <%= button_to "Add Ingredients", new_list_ingredient_path(@list), method: 'get' %>
 <%= button_to "Edit Recipe", edit_list_path(@list), method: 'get' %>
 <%= button_to "Delete Recipe", "/lists/#{@list.id}", method: 'delete' %><br>
 
 <%= form_for @comment do |f| %>
-  <%= f. text_field :content, placeholder: "New comment" %>
-  <%= f. hidden_field :list_id %>
-  <%= f.hidden_field :user_id %>
+  <%= f.text_field :content, placeholder: "New comment" %>
+  <%= f.hidden_field :list_id, value: @list.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit "Add Comment" %>
 <% end %>
 

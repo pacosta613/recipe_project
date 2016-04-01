@@ -1,18 +1,15 @@
-<%= form_for(@list) do |f| %>
+<%= form_for(@list) do |f| %><br>
 
   <%= f.label :name %>
   <%= f.text_field :name %><br>
 
-  <ul>
+ 
     <%= f.fields_for :ingredients_attributes do |ingredient| %> 
-
-      <li>
         <%= ingredient.label 'Ingredients:' %>
         <%= ingredient.text_field :description %>
-      </li>
 
     <% end %>
-  </ul>
+  
 
 <%= f.submit %>
 <% end %>

@@ -1,30 +1,22 @@
 class RatingsController < ApplicationController
 
-  def index
-    @list = List.find(params[:list_id])
-    @ratings = @list.ratings
-  end
-
   def new
   end
 
   def create
-  end
+    #binding.pry
+    @list = List.find_by(id: rating_params[:list_id])
+    @rating = @list.ratings.create(rating_params)
 
-  def edit
+    redirect_to lists_path(@list)
   end
 
   def show
   end
 
-  def update
-  end
-
-  def destroy
-  end
-
   private
 
   def rating_params
+    params.require(:rating).permit(:star_rating, :list_id, :user_id)
   end
 end

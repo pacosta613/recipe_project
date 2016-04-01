@@ -1,5 +1,6 @@
 class List < ActiveRecord::Base
   has_many :comments
+  has_many :ratings
   belongs_to :user
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
@@ -19,7 +20,16 @@ class List < ActiveRecord::Base
     comments_attributes.values.each do |comment|
 
       if !(comment["content"] == "")
-        self.ingredients << Ingredient.find_or_create_by(content: comment)
+        self.comment << Comment.find_or_create_by(content: comment)
+      end
+    end
+  end
+
+  def ratings_attributes=(ratings_attributes)
+    ratings_attributes.values.each do |rating|
+
+      if !(rating["star_rating"] == "")
+        self.ratings << Rating.find_or_create_by(star_rating: rating)
       end
     end
   end

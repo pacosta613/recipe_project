@@ -1,13 +1,44 @@
-h2.active {
-    background-color: #4CAF50;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
 }
 
-p.two {
-    border-style: solid;
-    border-color: green;
+li {
+    float: left;
 }
 
-p.three {
-    border-style: solid;
-    border-color: red green blue yellow;
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li {
+    border-right: 1px solid gray;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: green;
+}
+
+.active {
+    background-color: green;
+}
+
+li {
+    border-right: 1px solid white;
+}
+
+li:last-child {
+    border-right: none;
 }

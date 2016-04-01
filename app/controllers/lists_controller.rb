@@ -8,6 +8,7 @@ class ListsController < ApplicationController
   def show
     find_recipe
     @comment = Comment.new
+    @rating = Rating.new
   end
 
   def new
@@ -48,7 +49,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name, :user_id, :content, ingredients_attributes: :description, comments_attributes: :content)
+    params.require(:list).permit(:name, :user_id, :content, ingredients_attributes: :description, comments_attributes: :content, ratings_attributes: :star_rating)
   end
 
   def find_recipe

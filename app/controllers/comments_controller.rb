@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @list = List.find_by(params[:list_id])
+    #binding.pry
+    @list = List.find_by(id: comment_params[:list_id])
     @comment = @list.comments.create(comment_params)
 
     redirect_to lists_path(@list)
