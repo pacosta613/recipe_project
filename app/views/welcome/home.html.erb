@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="jumbotron">
+    <% if !session[:user_id] %>
+      <%=render partial: 'sessions/form', locals: {user: @user}%>
+      <%= link_to("Login with Facebook!", "/auth/facebook") %>
+    <% else %>
+      <h5>Welcome, <%= @user.name if @user.name %></h5>
+      <h2>Recipe Site</h2>
+      <p>This website allows you to create your recipe along with its ingredients. Have fun creating great foods to eat.</p>
+      <h3>All Recipes:</h3>
+      <% @lists.each do |list| %>
+         <h5><%=link_to list.name, list_path(list)%></h5>
+      <% end %>
+      <%= button_to 'Create New Recipe', new_list_path, method: 'get' %>
+    <% end %>  
+  </div>
+</div>
+
+<div class="container">
+  <div id="footer">
+    <div class="container">
+      <p class="text-info">By - <a href="https://github.com/pacosta613" target="_blank">Pedro J. Acosta</a></p>
+    </div>
+  </div>
+</div>

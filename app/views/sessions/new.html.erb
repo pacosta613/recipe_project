@@ -1,0 +1,5 @@
+<% if @error %>
+  <span style="color:red"><%= @error %></span>
+<% end %>
+<%=render 'form'%>
+<%= link_to("login with facebook!", "/auth/facebook") %>

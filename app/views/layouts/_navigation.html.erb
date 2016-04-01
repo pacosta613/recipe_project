@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+    <a class="navbar-brand" href="/">Recipe</a>
+  </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Recipe", lists_path %></li>
+          <% if !current_user %>
+
+            <li><%= link_to 'Login', login_path, method: 'get' %></li>
+
+            <li><%= link_to 'Sign Up', signup_path, method: 'get' %></li>
+
+          <% else %>
+
+            <li><%= link_to 'Logout', logout_path, method: 'post' %></li>
+          <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

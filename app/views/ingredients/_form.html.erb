@@ -1,0 +1,7 @@
+<%= form_for ([list, ingredient]) do |f| %>
+  
+  <%= f.label 'Ingredient' %>
+  <%= f.text_field :description %>
+  
+<%= f.submit "Add Ingredient" %>
+<% end %>
